@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FamilyApplication.Migrations
 {
-    [DbContext(typeof(CalendarContext))]
+    [DbContext(typeof(ApplicationDBContext))]
     [Migration("20221129210742_seed")]
     partial class seed
     {

@@ -4,8 +4,8 @@ namespace FamilyApplication.Services
 {
     public class CalendarEntryService : ICalendarEntryService
     {
-        public readonly CalendarContext _context;
-        public CalendarEntryService(CalendarContext context)
+        public readonly ApplicationDBContext _context;
+        public CalendarEntryService(ApplicationDBContext context)
         {
             _context = context;
         }

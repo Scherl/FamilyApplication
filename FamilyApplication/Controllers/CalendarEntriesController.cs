@@ -1,5 +1,6 @@
 ﻿using FamilyApplication.Models;
 using FamilyApplication.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FamilyApplication.Controllers
@@ -8,10 +9,10 @@ namespace FamilyApplication.Controllers
     [ApiController]
     public class CalendarEntriesController : ControllerBase
     {
-        public readonly CalendarContext Context;
+        public readonly ApplicationDBContext Context;
         public readonly ICalendarEntryService CalendarEntryService;
 
-        public CalendarEntriesController(CalendarContext context, ICalendarEntryService service)
+        public CalendarEntriesController(ApplicationDBContext context, ICalendarEntryService service)
         {
             Context = context;
             CalendarEntryService = service;
@@ -112,6 +113,7 @@ namespace FamilyApplication.Controllers
         /// <param name="id"></param>
         // DELETE api/<CalendarEntriesController>/5
         [HttpDelete("{id}")]
+        [Authorize(Policy = "AdminRight")]
         [Produces("application/json")]
         [ProducesResponseType(200, Type = typeof(string))]
         [ProducesResponseType(404, Type = typeof(string))]

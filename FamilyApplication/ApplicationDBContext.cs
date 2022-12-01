@@ -3,21 +3,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FamilyApplication
 {
-    public class CalendarContext : DbContext
+    public class ApplicationDBContext : DbContext
     {
  
 
-        public CalendarContext()
+        public ApplicationDBContext()
         {
             
 
         }
-
+        public DbSet<User> Users { get; set; }
         public  DbSet<Category> Categories { get; set; }
         public  DbSet<CalendarEntry> CalendarEntries { get; set; }
 
 
-        public CalendarContext(DbContextOptions<CalendarContext> options) : base(options)
+        public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options)
         {
            
         }
@@ -36,6 +36,12 @@ namespace FamilyApplication
             modelBuilder.Entity<Category>(entity =>
             {
                 entity.Property(c => c.CategoryName).IsRequired();
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.Property(c => c.UserName).IsRequired();
+                entity.Property(u => u.Password).IsRequired();
             });
 
         }

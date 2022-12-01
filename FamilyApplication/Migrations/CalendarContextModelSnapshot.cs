@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FamilyApplication.Migrations
 {
-    [DbContext(typeof(CalendarContext))]
+    [DbContext(typeof(ApplicationDBContext))]
     partial class CalendarContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
